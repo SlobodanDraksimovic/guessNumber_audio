@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Piazzolla:wght@500;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: cornflowerblue;
+  font-family: "Piazzolla", serif;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.text-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.text-content h1,
+h4 {
+  display: flex;
+  color: cornsilk;
+  padding: 1rem;
+}
+#paragraph {
+  font-size: 1.6rem;
+  padding: 1.4rem;
+  color: aliceblue;
+}
+#guess {
+  width: 120px;
+  height: 50px;
+  font-weight: 500;
+  border: none;
+  background-color: rgb(173, 164, 189);
+  cursor: pointer;
+}
+#guess:hover {
+  background-color: rgb(95, 95, 131);
+  color: aliceblue;
+}
