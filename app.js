@@ -12,30 +12,41 @@ const SpeechRecognition =
 const recognition = new SpeechRecognition();
 
 recognition.onresult = (event) => {
-  const transcript = event.results[0][0].transcript;
+  const current = event.resultIndex;
+  const transcript = event.results[current][0].transcript;
   guessNumber(transcript);
 };
 
 guessNumber = (audio) => {
   const number = +audio;
   if (Number.isNaN(number)) {
-    paragraph.innerText =
-      "Please provide a valid number! Click the button and guess again!";
+    suggestion(
+      "Please provide a valid number! Click the button and guess again!"
+    );
   } else if (number < 1 || number > 100) {
-    paragraph.innerText =
-      "Please provide number between 1 and 100! Click the button and guess again!";
+    suggestion(
+      "Please provide number between 1 and 100! Click the button and guess again!"
+    );
   } else if (number > randNumber) {
-    paragraph.innerText =
-      "Please try lower number! Click the button and guess again!";
+    suggestion("Please try lower number! Click the button and guess again!");
   } else if (number < randNumber) {
-    paragraph.innerText =
-      "Please try higher number! Click the button and guess again!";
+    suggestion("Please try higher number! Click the button and guess again!");
   } else {
-    paragraph.innerText = `You said: ${number} and it's a match, well done!`;
+    suggestion(`You said: ${number} and it's a match. Well done!`);
   }
 };
 
 guess.addEventListener("click", () => {
   recognition.start();
-  paragraph.innerText = "";
+  // paragraph.innerText = "";
 });
+
+function suggestion(message) {
+  let speech = new SpeechSynthesisUtterance();
+  speech.text = message;
+  speech.volume = 1;
+  speech.rate = 0.8;
+  speech.pitch = 1;
+  console.log(speech);
+  window.speechSynthesis.speak(speech);
+}
