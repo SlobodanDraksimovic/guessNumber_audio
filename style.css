@@ -18,6 +18,9 @@ main {
   justify-content: center;
   align-items: center;
 }
+p {
+  text-align: center;
+}
 .text-content {
   display: flex;
   flex-direction: column;
@@ -26,14 +29,19 @@ main {
 }
 .text-content h1,
 h4 {
-  display: flex;
+  display: block;
   color: cornsilk;
   padding: 1rem;
+  text-align: center;
 }
 #paragraph {
   font-size: 1.6rem;
   padding: 1.4rem;
   color: aliceblue;
+}
+#paragraph p {
+  display: block;
+  text-align: center;
 }
 #guess {
   width: 120px;
